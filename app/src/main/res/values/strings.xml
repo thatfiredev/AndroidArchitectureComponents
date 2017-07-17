@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android Architecture Components</string>
+    <string name="action_settings">Settings</string>
+    <string name="dialog_title">Adicionar Tarefa</string>
+    <string name="titulo">Título</string>
+    <string name="tarefa">Tarefa</string>
+    <string name="button_adicionar">Adicionar</string>
+    <string name="button_cancelar">Cancelar</string>
+</resources>
