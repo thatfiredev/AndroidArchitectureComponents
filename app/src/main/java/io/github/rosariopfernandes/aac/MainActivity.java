@@ -1,19 +1,24 @@
 package io.github.rosariopfernandes.aac;
 
-import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.OnLifecycleEvent;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends LifecycleActivity {
+public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private RecyclerView rv;
     private TarefaAdapter adapter;
@@ -24,12 +29,14 @@ public class MainActivity extends LifecycleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        rv = (RecyclerView) findViewById(R.id.rv);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        fab = findViewById(R.id.fab);
+        rv = findViewById(R.id.rv);
 
         tarefas = new ArrayList<>();
 
-        /*getLifecycle().addObserver(new LifecycleObserver() {
+        getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
             void resumiu()
             {
@@ -44,7 +51,7 @@ public class MainActivity extends LifecycleActivity {
                         "Activity terminou", Toast.LENGTH_SHORT).show();
                 getLifecycle().removeObserver(this);
             }
-        });*/
+        });
 
         ViewModelProviders.of(this)
                             .get(TarefaModel.class)
