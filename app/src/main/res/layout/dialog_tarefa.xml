@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Dialog used to add an existing account-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -9,26 +14,18 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/titulo"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         />
 
     <EditText
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textShortMessage"
-        android:ems="10"
-        android:padding="6dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:inputType="textCapSentences"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/tarefa"/>
 
@@ -36,9 +33,7 @@
         android:id="@+id/txtTarefa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textLongMessage"
-        android:padding="6dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:inputType="textMultiLine|textCapSentences"
+        android:maxLines="4"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
