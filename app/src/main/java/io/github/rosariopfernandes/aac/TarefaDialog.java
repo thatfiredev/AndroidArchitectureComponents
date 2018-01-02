@@ -28,8 +28,8 @@ public class TarefaDialog extends DialogFragment {
         builder = new AlertDialog.Builder(getActivity());
         View v = getActivity().getLayoutInflater()
                 .inflate(R.layout.dialog_tarefa, null);
-        txtTitulo = (EditText) v.findViewById(R.id.txtTitulo);
-        txtTarefa = (EditText) v.findViewById(R.id.txtTarefa);
+        txtTitulo = v.findViewById(R.id.txtTitulo);
+        txtTarefa = v.findViewById(R.id.txtTarefa);
         builder.setView(v);
         builder.setTitle(R.string.dialog_title);
         builder.setPositiveButton(R.string.button_adicionar, new DialogInterface.OnClickListener() {
@@ -38,7 +38,8 @@ public class TarefaDialog extends DialogFragment {
                 BaseDados db = BaseDados.getDatabase(getActivity().getApplicationContext());
                 Tarefa tarefa = new Tarefa(txtTitulo.getText().toString(),
                         txtTarefa.getText().toString());
-                new InsertAsyncTask(db).execute(tarefa);
+                if(!tarefa.getTarefa().equalsIgnoreCase(""))
+                    new InsertAsyncTask(db).execute(tarefa);
             }
         });
         builder.setNegativeButton(R.string.button_cancelar, null);
